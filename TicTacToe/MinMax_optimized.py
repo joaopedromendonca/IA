@@ -12,7 +12,6 @@
 
 total de 986410 tabelas
 """
-from random import randint, seed
 import math
 
 
@@ -29,7 +28,16 @@ class Node:
         self.value_temp = -3
 
     def print_table(self):
+        print("  0  1  2")
         for i in range(9):
+            
+            if i == 0:
+                print("0", end="")
+            elif i == 3:
+                print("1", end="")
+            elif i == 6:
+                print("2", end="")
+
             print("|", end="")
             if self.table[i] == 0:
                 print(" |", end="")
@@ -39,6 +47,7 @@ class Node:
                 print("O|", end="")
             if i != 0 and (i + 1) % 3 == 0:
                 print()
+
 
     def clone_node(self, i_pos, turn):
         new_Node = Node()
@@ -240,8 +249,8 @@ def init_game():
             turn = "x"
             go = False
             while not go:
-                x = input("Entre com o x: ")
-                y = input("Entre com o y: ")
+                x = input("Entre com a linha: ")
+                y = input("Entre com a coluna: ")
                 if (x == "0" or x == "1" or x == "2") and (y == "0" or y == "1" or y == "2"):
                     k = 3 * int(x) + int(y)
                     if of_node.table[k] == 0:
@@ -270,10 +279,11 @@ def init_game():
             print("Empatou!")
 
         if over:
-            i = input("Jogar novamente?s/n")
+            i = input("Jogar novamente?s/n: ")
             if i == "s":
                 restart = True
                 over = False
-
+            else:
+                print("Obrigado por jogar!")
 
 init_game()
