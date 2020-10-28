@@ -257,7 +257,6 @@ def init_game():
                         of_node.table[k] = 2
                         of_node.empty_slots -= 1
                         go = True
-                        of_node.print_table()
                     else:
                         print("Escolha uma posição vazia.")
                 else:
