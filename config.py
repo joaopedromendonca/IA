@@ -7,7 +7,7 @@ load_dotenv(path.join(base_dir, ".env"), override=True)
 
 class Config(object):
 
-    SECRET_KEY = "*q[\\O!\xd6\xe5v\xcd\xaaJ]\xfb\xe0\xb0\xe3\x8f\xfb\xcf\xf1f\xa8>"
+    SECRET_KEY = "Q*[\\!o\xd6\xe5v\xcd\xaa]F\xfb\xe0\xb0\xe3\x8f\xfb\xcf\xf1j\xa8>"
     FLASK_APP = "wsgi.py"
 
     DEBUG = True
@@ -17,7 +17,7 @@ class Config(object):
     TEMPLATES_FOLDER = "templates"
 
     SQLALCHEMY_DATABASE_URI = (
-        "mysql+pymysql://jpmol:kw1k1kjkwj@jpmol.mysql.pythonanywhere-services.com/jpmol$tictactoe"
+        "mysql+pymysql://root:123@127.0.0.1:3306/tictactoedb"
     )
     SQLALCHEMY_ECHO = False
     SQLALCHEMY_TRACK_MODIFICATIONS = False
