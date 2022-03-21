@@ -1,5 +1,4 @@
 from __future__ import annotations
-import time
 
 class Board:
 
@@ -79,6 +78,7 @@ class Board:
                 if self.winner == 'n':
                     if self.squares[2] == self.squares[4] and self.squares[6] == self.squares[2] and self.squares[2] != 'e':
                         self.winner = self.squares[2]
+    
     
 class Tree:
 
