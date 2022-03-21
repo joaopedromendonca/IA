@@ -99,7 +99,7 @@ class Tree:
         
         if current_board is None:
             current_board = self.root
-        
+            
         for square_index in range(9):
             
             if current_board.squares[square_index] == 'e':
@@ -120,19 +120,14 @@ class Tree:
                 Creates the actual board and update it's winner value, then add to the tree set of boards 
                 '''
                 board = Board(_squares,turn)
+                board.check_winner()
                 current_board.next.add(board)
-                
-                if board not in self.all_boards:    
-                    board.check_winner()
-                    self.all_boards.add(board)
-                    
-                    '''
-                    If board already has a winner doesnt need to generate next boards
-                    '''
-                    if board.winner != 'n':
-                        current_board.winner = board.winner
-                    else:
-                        self.generate_tree(board)
+                self.all_boards.add(board)
+                if board.winner != 'n':
+                    current_board.winner = board.winner
+                self.cont += 1
+                print(self.cont)
+                self.generate_tree(board)
 
     def best_move(self,current_board : Board = None) -> int:
         
