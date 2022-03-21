@@ -17,7 +17,7 @@ class Config(object):
     TEMPLATES_FOLDER = "templates"
 
     SQLALCHEMY_DATABASE_URI = (
-        "mariadb+mariadbconnector://root:123@127.0.0.1:3306/esmlaidb"
+        "mysql+pymysql://jpmol:J0$3m3nd0nça123@jpmol.mysql.pythonanywhere-services.com/tictactoe"
     )
     SQLALCHEMY_ECHO = False
     SQLALCHEMY_TRACK_MODIFICATIONS = False
