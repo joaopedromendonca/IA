@@ -1,0 +1,1 @@
+web: gnunicorn wsgi:app
