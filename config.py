@@ -17,7 +17,7 @@ class Config(object):
     TEMPLATES_FOLDER = "templates"
 
     SQLALCHEMY_DATABASE_URI = (
-        "mysql+pymysql://root:123@127.0.0.1:3306/tictactoedb"
+        "sqlite:///tictactoedb.sqlite3"
     )
     SQLALCHEMY_ECHO = False
     SQLALCHEMY_TRACK_MODIFICATIONS = False
