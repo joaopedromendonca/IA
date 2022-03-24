@@ -1,4 +1,6 @@
 from __future__ import annotations
+from ctypes import sizeof
+import time
 
 class Board:
 
@@ -83,7 +85,7 @@ class Board:
 class Tree:
 
     
-    def __init__(self) -> None:
+    def __init__(self, generate : bool = True) -> None:
         
         squares = ('e','e','e',
                    'e','e','e',
@@ -92,7 +94,9 @@ class Tree:
         self.root = Board(squares)
         self.all_boards = set()
         self.cont = 0
-        self.generate_tree()
+        
+        if generate:
+            self.generate_tree()
         
     
     def generate_tree(self, current_board : Board = None) -> None:
@@ -125,9 +129,12 @@ class Tree:
                 self.all_boards.add(board)
                 if board.winner != 'n':
                     current_board.winner = board.winner
-                self.cont += 1
-                print(self.cont)
-                self.generate_tree(board)
+                # In the end there are 5467 different boards, but during the process of generating them, 182168 are considered
+                # and in the end, the set itself filters the equal ones.
+                print(round((self.cont/182168)*100, 2), "%")
+                if current_board.winner == 'n':
+                    self.cont += 1
+                    self.generate_tree(board)
 
     def best_move(self,current_board : Board = None) -> int:
         
@@ -206,6 +213,10 @@ class Game:
 
 if __name__ == "__main__":
     
+    t1 = time.time()
     tree = Tree()
+    t2 = time.time()
+    print(t2-t1)
     game = Game(tree)
+    print(len(tree.all_boards))
     game.versus_pro_cpu()
