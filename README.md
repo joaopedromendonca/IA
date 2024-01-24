@@ -1,3 +1,3 @@
 # TicTacToe
 
-Web application that implements a tictactoe IA with minmax algorithm.
+Tictactoe game with IA using minmax algorithm.
